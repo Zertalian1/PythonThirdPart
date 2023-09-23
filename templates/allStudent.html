@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>student</title>
+</head>
+<body>
+<a href="student/create">Добавить Студента</a>
+    <h2>Список Студентов</h2>
+    <table>
+        <thead>
+        <th>Id</th>
+        <th>ФИО</th>
+        <th>Дата рождения</th>
+        <th>Дата поступления</th>
+        <th>id Университета</th>
+        <th></th>
+        <th></th>
+        </thead>
+        {% for student in students %}
+            <tr>
+                <td>{{ student.student_id }}</td>
+                <td>{{ student.FCs }}</td>
+                <td>{{ student.date_of_birth.strftime('%Y-%m-%d') }}</td>
+                <td>{{ student.year_of_admission.strftime('%Y-%m-%d') }}</td>
+                <td>{{ student.university }}</td>
+                <td><a href="student/delete/{{ student.student_id }}">Удалить</a></td>
+                <td><a href="student/edit/{{ student.student_id }}">Изменить</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+<a href="/api">root</a>
+</body>
+</html>

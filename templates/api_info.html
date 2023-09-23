@@ -17,6 +17,7 @@
         <h4>GET: api/university/edit/{id} - get edit university page</h4>
         <h4>POST: api/university/edit/{id} - edit university by id</h4>
     </div>
+    <a href="/api/university">University</a>
 </div>
 <div style="margin-left: 20px">
     <h2>Student:</h2>
@@ -28,6 +29,16 @@
         <h4>DELETE: api/student/{id} - delete student by id</h4>
         <h4>PATCH: api/student/{id} - edit student by id</h4>
     </div>
+    <a href="/api/student">Student</a>
 </div>
+
+<div>
+    {% if current_user.is_anonymous %}
+    <a href="/api/login">Login</a>
+    {% else %}
+    <a href="/api/logout">Logout</a>
+    {% endif %}
+</div>
+
 </body>
 </html>

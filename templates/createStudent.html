@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>student</title>
+</head>
+<body>
+<table>
+    <h1>Student</h1>
+    <form method="POST">
+        <table>
+            <tbody>
+            <tr>
+                <th><label for="id_FCs">Full name:</label></th>
+                <td>
+                    <input type="text" name="FCs" maxlength="50" required="" id="id_FCs"
+                           value="{{ student.FCs }}">
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_date_of_birth">Date of birth:</label></th>
+                <td>
+                    <input type="date" name="date_of_birth" required="" id="id_date_of_birth"
+                           value="{{ student.date_of_birth.strftime('%Y-%m-%d') }}">
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_year_of_admission">Year of admission:</label></th>
+                <td>
+                    <input type="date" name="year_of_admission" required="" id="id_year_of_admission"
+                           value="{{ student.year_of_admission.strftime('%Y-%m-%d') }}">
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_university">University:</label></th>
+                <td>
+                    <select name="university" required="" id="id_university">
+                        {% for university in available_university_list %}
+                            <option value="{{ university.university_id }}">{{ university.short_name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <input type="submit" value="confirm">
+    </form>
+</table>
+</body>
+</html>
